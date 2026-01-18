@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Resultados PAES 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* Variables CSS basadas en el logo de TetherEd */
+        :root {
+            --tether-dark: #1a1a5c;      /* Indigo profundo del texto */
+            --tether-cyan: #00dbeb;      /* Cian brillante */
+            --tether-purple: #7c4dff;    /* Morado del gradiente inferior */
+            --tech-gradient: linear-gradient(135deg, var(--tether-cyan), var(--tether-purple));
+            --dark-gradient: linear-gradient(to right, #0f0f3d, var(--tether-dark));
+            
+            --bg-light: #f8f9fa;
+            --text-main: #2c3e50;
+            --text-muted: #6c757d;
+            
+            --section-spacing: 80px;
+        }
+
+        /* Reset y Estilos Globales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            color: var(--tether-dark);
+            font-weight: 700;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: var(--section-spacing) 0;
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        /* Pequeño acento tecnológico debajo de los títulos */
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--tech-gradient);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- HEADER --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-logo {
+            height: 50px;
+            width: auto;
+        }
+        
+        /* Placeholder para el logo del cliente para que se vea el espacio */
+        .client-logo-placeholder {
+            height: 50px;
+            width: 150px;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-weight: 600;
+            border: 2px dashed #ced4da;
+            border-radius: 8px;
+        }
+
+        /* --- PORTADA (Cover Page) --- */
+        .cover-section {
+            background: var(--dark-gradient);
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 40px;
+        }
+
+        .cover-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            color: white;
+        }
+
+        .cover-subtitle {
+            font-size: 1.8rem;
+            font-weight: 300;
+            opacity: 0.9;
+            color: white;
+        }
+        
+        .cover-date {
+            margin-top: 30px;
+            font-weight: 600;
+            color: var(--tether-cyan);
+        }
+
+        /* --- SECCIÓN INTRO & CONCLUSIÓN --- */
+        .text-content {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: justify;
+        }
+
+        /* --- CARDS DE DATOS (Para Max Nacionales y Comunal) --- */
+        .data-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .data-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid #eee;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .data-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: var(--tether-cyan);
+        }
+        
+        /* Barra de acento superior en las cards */
+        .data-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: var(--tech-gradient);
+        }
+
+        .data-card h3 {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .data-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--tether-dark);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        
+        .data-number.highlight-cyan {
+            background: var(--tech-gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .data-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--tether-dark);
+        }
+
+        /* --- SECCIÓN GEO-RANKING (5km/10km) --- */
+        .geo-ranking-container {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .geo-box {
+            flex: 1;
+            min-width: 300px;
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid #f0f2f5;
+            position: relative;
+        }
+        
+        .geo-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: var(--tech-gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .ranking-position {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--tether-dark);
+        }
+        .ranking-total {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+
+        /* --- TABLA DE MATRÍCULA POTENCIAL --- */
+        .table-container {
+            overflow-x: auto;
+            padding: 0 20px;
+        }
+
+        .tech-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 30px;
+        }
+
+        .tech-table th {
+            background-color: var(--tether-dark);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .tech-table th:first-child {
+            border-top-left-radius: 12px;
+        }
+        .tech-table th:last-child {
+            border-top-right-radius: 12px;
+        }
+
+        .tech-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            color: var(--text-main);
+        }
+
+        .tech-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .tech-table tr:hover td {
+            background-color: #f8f9fa;
+        }
+        
+        .university-group-header {
+            background-color: #e9ecef !important;
+            font-weight: 700;
+            color: var(--tether-dark) !important;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .potential-count {
+            font-weight: 700;
+            color: var(--tether-dark);
+            font-size: 1.1rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            margin-top: 40px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-left">
+            <img src="{{LOGO_INSTITUCION}}" alt="Logo cliente" class="header-logo">
+        </div>
+        <div class="logo-right">
+            <img src="{{LOGO_TETHER}}" alt="TetherEd Logo" class="header-logo">
+        </div>
+    </header>
+
+    <section class="cover-section">
+        <div class="container">
+            <h1 class="cover-title">REPORTE DE RESULTADOS PAES 2025</h1>
+            <h2 class="cover-subtitle">{{NOMBRE_DEL_ESTABLECIMIENTO}}</h2>
+            <div class="cover-date">Generado: {{FECHA_REPORTE}}</div>
+        </div>
+    </section>
+
+    <div class="container main-content">
+        
+        <section class="section">
+            <h2 class="section-title">Introducción</h2>
+            <div class="text-content">
+                <p>El presente reporte tiene como objetivo entregar un análisis detallado del desempeño de los estudiantes de <strong>{{NOMBRE_DEL_ESTABLECIMIENTO}}</strong> en la Prueba de Acceso a la Educación Superior (PAES) rendida en 2025. A través de las siguientes secciones, analizaremos indicadores clave de rendimiento a nivel nacional y comunal, así como la posición relativa del establecimiento en su entorno geográfico inmediato y la proyección de elegibilidad académica en carreras altamente competitivas.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Resultados Máximos Nacionales</h2>
+            <p style="text-align: center; margin-bottom: 30px; color: var(--text-muted);">Cantidad de puntajes máximos (1000 puntos) obtenidos por estudiantes del establecimiento.</p>
+            
+            <div class="data-grid-3">
+                <div class="data-card">
+                    <h3>Matemática 1 (M1)</h3>
+                    <div class="data-number highlight-cyan">{{CANTIDAD_NACIONALES_M1}}</div>
+                    <div class="data-label">Puntajes Nacionales</div>
+                </div>
+                
+                <div class="data-card">
+                    <h3>Competencia Lectora</h3>
+                    <div class="data-number highlight-cyan">{{CANTIDAD_NACIONALES_LECTORA}}</div>
+                    <div class="data-label">Puntajes Nacionales</div>
+                </div>
+
+                <div class="data-card">
+                    <h3>Matemática 2 (M2)</h3>
+                    <div class="data-number highlight-cyan">{{CANTIDAD_NACIONALES_M2}}</div>
+                    <div class="data-label">Puntajes Nacionales</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background: #f0f4ff;"> <h2 class="section-title">Desempeño Comunal Destacado</h2>
+            <div class="container" style="text-align: center;">
+                <div style="margin: 40px auto; max-width: 600px;">
+                    <h3 style="color: var(--tether-dark); margin-bottom: 20px;">Alumnos en el Top 10% a Nivel Comunal</h3>
+                    
+                    <div style="font-size: 6rem; font-weight: 900; line-height: 1; background: var(--tech-gradient); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                        {{NUMERO_ALUMNOS_TOP10_COMUNAL}}
+                    </div>
+                    <p style="font-size: 1.5rem; font-weight: 600; margin-top: 10px; color: var(--tether-dark);">Estudiantes</p>
+                    <p style="color: var(--text-muted); margin-top: 20px;">
+                        Este indicador refleja la cantidad de alumnos del establecimiento cuyo promedio PAES se ubica dentro del 10% superior de todos los estudiantes de la comuna de {{NOMBRE_COMUNA}}.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Posicionamiento Geográfico</h2>
+            <p style="text-align: center; margin-bottom: 40px; color: var(--text-muted);">Lugar del colegio según promedio PAES en relación a establecimientos cercanos.</p>
+            
+            <div class="geo-ranking-container">
+                <div class="geo-box">
+                    <div class="geo-icon">📍</div>
+                    <h3>Radio de 5km</h3>
+                    <div style="margin: 30px 0;">
+                        <span class="ranking-position">
+                            {{RANKING_5KM}}°
+                        </span>
+                        <span class="ranking-total">
+                              de {{TOTAL_COLEGIOS_5KM}} colegios
+                        </span>
+                    </div>
+                    <p style="color: var(--text-muted);">Lugar obtenido entre establecimientos a 5km a la redonda.</p>
+                </div>
+
+                <div class="geo-box">
+                    <div class="geo-icon">🌐</div>
+                    <h3>Radio de 10km</h3>
+                    <div style="margin: 30px 0;">
+                        <span class="ranking-position">
+                            {{RANKING_10KM}}°
+                        </span>
+                        <span class="ranking-total">
+                              de {{TOTAL_COLEGIOS_10KM}} colegios
+                        </span>
+                    </div>
+                    <p style="color: var(--text-muted);">Lugar obtenido entre establecimientos a 10km a la redonda.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Proyección de Matrícula Selectiva</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px auto; color: var(--text-muted);">Estimación de alumnos que hubiesen alcanzado el puntaje de corte 2025 para carreras de alta exigencia en la U. de Chile y PUC.</p>
+            
+            <div class="table-container">
+                <table class="tech-table">
+                    <thead>
+                        <tr>
+                            <th>Universidad</th>
+                            <th>Carrera</th>
+                            <th>Alumnos Matriculables Estimados</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="3" class="university-group-header">Universidad de Chile (UCH)</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Ingeniería Civil (Plan Común)</td>
+                            <td class="potential-count">{{UCH_ING_CIVIL_COUNT}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Derecho</td>
+                            <td class="potential-count">{{UCH_DERECHO_COUNT}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Medicina</td>
+                            <td class="potential-count">{{UCH_MEDICINA_COUNT}}</td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="3" class="university-group-header" style="border-top: 2px solid #eee;">Pontificia Universidad Católica (PUC)</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Ingeniería Civil</td>
+                            <td class="potential-count">{{PUC_ING_CIVIL_COUNT}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Derecho</td>
+                            <td class="potential-count">{{PUC_DERECHO_COUNT}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Medicina</td>
+                            <td class="potential-count">{{PUC_MEDICINA_COUNT}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="section" style="border-bottom: 4px solid var(--tether-purple);">
+            <h2 class="section-title">Conclusión</h2>
+            <div class="text-content">
+                <p>Los resultados PAES 2025 para <strong>{{NOMBRE_DEL_ESTABLECIMIENTO}}</strong> demuestran [Insertar análisis general aquí, ej: una consolidación en áreas clave y oportunidades de crecimiento en...]. El posicionamiento comunal y geográfico evidencia la competitividad del establecimiento en su zona. Es notable el número de estudiantes que alcanzan estándares para programas de alta selectividad en la UCH y PUC, lo que refleja la calidad de la preparación académica ofrecida.</p>
+            </div>
+        </section>
+
+    </div> <footer>
+        <p>© 2026 TetherEd. Reporte generado con datos PAES 2025.</p>
+        <p>Información confidencial para uso exclusivo del establecimiento cliente.</p>
+    </footer>
+
+</body>
+</html>
